@@ -81,7 +81,9 @@ int recursiveSolution(int soldiers, int step) {
 int mathSolution(int soldiers, int step) {
     int survivor = 0;
     for (int i = 0; i < soldiers; i++) {
+        std::cout << "Calculo atual: survivor = ((" << survivor + 1 << " + " << step << ") % " << i + 1 << ") + 1" << std::endl;
         survivor = (survivor + step) % (i + 1);
+        std::cout << "survivor = " << survivor + 1 << std::endl;
     }
     return survivor + 1;
 }
@@ -93,7 +95,8 @@ int main() {
     for (int currentCase = 0; currentCase < cases; currentCase++) {
         int soldiers, step;
         std::cin >> soldiers >> step;
-        std::cout << "Case " << currentCase + 1 << ": " << queueSolution(soldiers, step) << std::endl;
+        int solution = mathSolution(soldiers, step);
+        std::cout << "Case " << currentCase + 1 << ": " << solution << std::endl;
     }
     return 0;
 }
